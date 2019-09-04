@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="fjB-gq-C5x">
@@ -89,6 +94,13 @@
                                     <action selector="back:" destination="RgU-4c-AIy" eventType="touchUpInside" id="F0L-mT-ZB0"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name" textAlignment="natural" minimumFontSize="20" background="rectangle_background" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-D9-ipf">
+                                <rect key="frame" x="0.0" y="105" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -98,6 +110,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SfR-YO-VTO"/>
                     </view>
+                    <connections>
+                        <outlet property="name" destination="EYI-D9-ipf" id="YQ7-Tv-WcV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qof-ES-eKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,5 +124,6 @@
         <image name="menu_bar" width="375" height="100"/>
         <image name="more_info" width="39" height="39"/>
         <image name="new_contact" width="39" height="39"/>
+        <image name="rectangle_background" width="375" height="82"/>
     </resources>
 </document>

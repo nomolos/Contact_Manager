@@ -10,9 +10,15 @@ import UIKit
 
 class NewContactController: UIViewController {
 
+    
+    @IBOutlet weak var name: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        name.borderStyle = UITextField.BorderStyle.none;
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.name.frame.height))
+        name.leftView = paddingView
+        name.leftViewMode = UITextField.ViewMode.always
         // Do any additional setup after loading the view.
     }
     

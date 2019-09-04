@@ -13,9 +13,12 @@
 		BD0C5384231862A300E9132E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0C5382231862A300E9132E /* LaunchScreen.storyboard */; };
 		BD0C538F231862A300E9132E /* contact_managerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0C538E231862A300E9132E /* contact_managerTests.swift */; };
 		BD0C539A231862A300E9132E /* contact_managerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0C5399231862A300E9132E /* contact_managerUITests.swift */; };
+		BDDBA9462320770400C195E2 /* San Francisco Pro in Resources */ = {isa = PBXBuildFile; fileRef = BDDBA9452320770400C195E2 /* San Francisco Pro */; };
+		BDDEAE572320751F001AFB66 /* SFCompactDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDDEAE562320751F001AFB66 /* SFCompactDisplay-Regular.otf */; };
 		BDF87B08231F28CF002BC12F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF87B07231F28CF002BC12F /* ViewController.swift */; };
 		BDF87B0A23204C8F002BC12F /* NewContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF87B0923204C8F002BC12F /* NewContactController.swift */; };
 		BDF87B10232068C0002BC12F /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF87B0F232068C0002BC12F /* CustomSegue.swift */; };
+		BDF87B12232073E3002BC12F /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = BDF87B11232073E3002BC12F /* fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +51,12 @@
 		BD0C5395231862A300E9132E /* contact_managerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = contact_managerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0C5399231862A300E9132E /* contact_managerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contact_managerUITests.swift; sourceTree = "<group>"; };
 		BD0C539B231862A300E9132E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDDBA9452320770400C195E2 /* San Francisco Pro */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "San Francisco Pro"; path = "../../../../../Volumes/SF-Font-Pro/San Francisco Pro"; sourceTree = "<group>"; };
+		BDDEAE562320751F001AFB66 /* SFCompactDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFCompactDisplay-Regular.otf"; path = "../../../Desktop/fonts/SFCompactDisplay-Regular.otf"; sourceTree = "<group>"; };
 		BDF87B07231F28CF002BC12F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BDF87B0923204C8F002BC12F /* NewContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactController.swift; sourceTree = "<group>"; };
 		BDF87B0F232068C0002BC12F /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
+		BDF87B11232073E3002BC12F /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../../Desktop/fonts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 		BD0C5378231862A100E9132E /* contact_manager */ = {
 			isa = PBXGroup;
 			children = (
+				BDDEAE562320751F001AFB66 /* SFCompactDisplay-Regular.otf */,
+				BDDBA9452320770400C195E2 /* San Francisco Pro */,
+				BDF87B11232073E3002BC12F /* fonts */,
 				BD0C5379231862A100E9132E /* AppDelegate.swift */,
 				BD0C537D231862A100E9132E /* Main.storyboard */,
 				BDF87B0923204C8F002BC12F /* NewContactController.swift */,
@@ -235,9 +244,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDDBA9462320770400C195E2 /* San Francisco Pro in Resources */,
 				BD0C5384231862A300E9132E /* LaunchScreen.storyboard in Resources */,
+				BDDEAE572320751F001AFB66 /* SFCompactDisplay-Regular.otf in Resources */,
 				BD0C5381231862A300E9132E /* Assets.xcassets in Resources */,
 				BD0C537F231862A100E9132E /* Main.storyboard in Resources */,
+				BDF87B12232073E3002BC12F /* fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
