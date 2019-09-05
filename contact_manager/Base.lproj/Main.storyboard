@@ -128,6 +128,16 @@
                                     <outlet property="delegate" destination="RgU-4c-AIy" id="JEA-NA-Alm"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Interaction" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="kzH-m6-oez">
+                                <rect key="frame" x="0.0" y="340" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="rd6-ca-AVo"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -139,6 +149,7 @@
                     </view>
                     <connections>
                         <outlet property="contentment_textfield" destination="EvP-Mz-2o5" id="VqV-DF-GEk"/>
+                        <outlet property="interaction_textfield" destination="kzH-m6-oez" id="0Ar-nX-zxh"/>
                         <outlet property="name" destination="EYI-D9-ipf" id="YQ7-Tv-WcV"/>
                         <outlet property="picker" destination="qEq-R4-gI6" id="Zmn-TU-S55"/>
                         <outlet property="relationship_textfield" destination="8mo-Yv-pMf" id="Egn-u0-aFX"/>

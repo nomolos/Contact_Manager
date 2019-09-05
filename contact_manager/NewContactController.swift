@@ -15,6 +15,8 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
     
     let contentment_data = ["Maximum", "No Complaints", "Feeling distant", "Some tension", "Uncomfortable"]
     
+    let interaction_data = ["Daily", "Weekly", "Every Two Weeks", "Monthly", "Every Two Months"]
+    
     var current_data = [""]
     var current_size = 0
     
@@ -24,11 +26,14 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
     @IBOutlet weak var relationship_textfield: UITextField!
     @IBOutlet weak var picker: UIPickerView!
 
+    @IBOutlet weak var interaction_textfield: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        contentment_textfield.delegate = self as? UITextFieldDelegate
-        relationship_textfield.delegate = self as? UITextFieldDelegate
+        contentment_textfield.delegate = self
+        relationship_textfield.delegate = self
+        interaction_textfield.delegate = self
         self.picker.delegate = self
         self.picker.dataSource = self
         
@@ -49,6 +54,10 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
         let paddingView3 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.contentment_textfield.frame.height))
         contentment_textfield.leftView = paddingView3
         contentment_textfield.leftViewMode = UITextField.ViewMode.always
+        interaction_textfield.borderStyle = UITextField.BorderStyle.none;
+        let paddingView4 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.interaction_textfield.frame.height))
+        interaction_textfield.leftView = paddingView4
+        interaction_textfield.leftViewMode = UITextField.ViewMode.always
         
         // Do any additional setup after loading the view.
         
@@ -95,6 +104,9 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
         else if(current_data == relationship_data){
             relationship_textfield.text = current_data[row]
         }
+        else if(current_data == interaction_data){
+            interaction_textfield.text = current_data[row]
+        }
         picker.isHidden = true
     }
     
@@ -108,6 +120,10 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
             print("Were editing the relationship textfield")
             current_data = relationship_data
             current_size = relationship_data.count
+        }
+        else if(textField == interaction_textfield){
+            current_data = interaction_data
+            current_size = interaction_data.count
         }
         picker.reloadAllComponents()
         picker.isHidden = false
