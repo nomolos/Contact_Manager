@@ -94,12 +94,39 @@
                                     <action selector="back:" destination="RgU-4c-AIy" eventType="touchUpInside" id="F0L-mT-ZB0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name" textAlignment="natural" minimumFontSize="20" background="rectangle_background" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-D9-ipf">
-                                <rect key="frame" x="0.0" y="105" width="375" height="80"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-D9-ipf">
+                                <rect key="frame" x="0.0" y="100" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qEq-R4-gI6">
+                                <rect key="frame" x="0.0" y="465" width="375" height="347"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="hX1-Wa-xPl"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Relationship" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="8mo-Yv-pMf">
+                                <rect key="frame" x="0.0" y="180" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="gnM-ju-IUO"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contentment" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="EvP-Mz-2o5">
+                                <rect key="frame" x="0.0" y="260" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="JEA-NA-Alm"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,7 +138,10 @@
                         <viewLayoutGuide key="safeArea" id="SfR-YO-VTO"/>
                     </view>
                     <connections>
+                        <outlet property="contentment_textfield" destination="EvP-Mz-2o5" id="VqV-DF-GEk"/>
                         <outlet property="name" destination="EYI-D9-ipf" id="YQ7-Tv-WcV"/>
+                        <outlet property="picker" destination="qEq-R4-gI6" id="Zmn-TU-S55"/>
+                        <outlet property="relationship_textfield" destination="8mo-Yv-pMf" id="Egn-u0-aFX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qof-ES-eKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,9 +151,9 @@
     </scenes>
     <resources>
         <image name="back_button" width="40" height="40"/>
+        <image name="background_2" width="375" height="44"/>
         <image name="menu_bar" width="375" height="100"/>
         <image name="more_info" width="39" height="39"/>
         <image name="new_contact" width="39" height="39"/>
-        <image name="rectangle_background" width="375" height="82"/>
     </resources>
 </document>

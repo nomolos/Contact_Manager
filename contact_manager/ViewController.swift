@@ -32,13 +32,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(contacts.count)
         return contacts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        
+        // style for table view cells
         cell.textLabel?.text = contacts[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "SFProText-Medium", size: 20.0)
+        cell.textLabel?.font = cell.textLabel?.font.withSize(20)
+
         return cell
     }
 
