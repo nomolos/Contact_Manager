@@ -27,6 +27,8 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
     @IBOutlet weak var picker: UIPickerView!
 
     @IBOutlet weak var interaction_textfield: UITextField!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +144,21 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    
+    @IBAction func create_contact(_ sender: UIButton) {
+        print(name.text!)
+        print(relationship_textfield.text!)
+        print(contentment_textfield.text!)
+        print(interaction_textfield.text!)
+        let home_view = ViewController(nibName: "ViewController", bundle: nil)
+        home_view.contacts.append(String(name.text ?? ""))
+        
+        print(home_view.contacts)
+        
+        navigationController?.pushViewController(home_view, animated: true)
+        return
     }
     
     /*

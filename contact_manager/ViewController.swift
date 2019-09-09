@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let contacts = ["Mom", "Nate", "Sophie", "Darryl", "Josie"]
+    var contacts = ["Mom", "Nate", "Sophie", "Darryl", "Josie"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
