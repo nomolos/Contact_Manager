@@ -10,15 +10,27 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var contacts = ["Mom", "Nate", "Sophie", "Darryl", "Josie"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
+        print("Data reloaded")
+        print(contacts)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+        print(contacts)
     }
 
     // MARK: - Table view data source
@@ -50,6 +62,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func fill_contact(_ sender: Any) {
         performSegue(withIdentifier: "new_contact", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare called in View Controller")
+        let newContactController = segue.destination as? NewContactController
+        newContactController!.contacts = contacts
+    }
+    
+    @IBAction func save(_ unwindSegue: UIStoryboardSegue) {
+        print("save called")
+        if let newContactController = unwindSegue.source as? NewContactController {
+            contacts = newContactController.contacts as! [String]
+            print(contacts)
+            print("end of save")
+        }
+    }
+    
+    func push_contact(contact : String) {
+        self.contacts.append(contact)
+        print("pushing " + contact)
+        print(contacts)
+        // tableView.reloadData()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -20,6 +20,8 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
     var current_data = [""]
     var current_size = 0
     
+    var contacts = [""]
+    
     @IBOutlet weak var name: UITextField!
     
     @IBOutlet weak var contentment_textfield: UITextField!
@@ -139,7 +141,8 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromLeft
         self.view.window!.layer.add(transition, forKey: nil)
-        self.dismiss(animated: false, completion: nil)
+        performSegue(withIdentifier: "save_unwind", sender: self)
+        //self.dismiss(animated: false, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -152,11 +155,15 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
         print(relationship_textfield.text!)
         print(contentment_textfield.text!)
         print(interaction_textfield.text!)
+        
+        self.contacts.append(name.text!)
+        
         let home_view = ViewController(nibName: "ViewController", bundle: nil)
-        home_view.contacts.append(String(name.text ?? ""))
+        //home_view.contacts.append(String(name.text ?? ""))
+        home_view.push_contact(contact: name.text!)
+        
         
         print(home_view.contacts)
-        
         navigationController?.pushViewController(home_view, animated: true)
         return
     }

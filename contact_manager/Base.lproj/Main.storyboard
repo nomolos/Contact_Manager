@@ -78,6 +78,7 @@
                         <viewLayoutGuide key="safeArea" id="rwm-yw-eU6"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="ViM-LZ-S0a" id="Jlt-dw-S7P"/>
                         <segue destination="RgU-4c-AIy" kind="presentation" identifier="new_contact" customClass="CustomSegue" customModule="contact_manager" customModuleProvider="target" id="GQO-OU-n15"/>
                     </connections>
                 </viewController>
@@ -181,9 +182,11 @@
                         <outlet property="name" destination="EYI-D9-ipf" id="YQ7-Tv-WcV"/>
                         <outlet property="picker" destination="qEq-R4-gI6" id="Zmn-TU-S55"/>
                         <outlet property="relationship_textfield" destination="8mo-Yv-pMf" id="Egn-u0-aFX"/>
+                        <segue destination="Wgw-sZ-ifc" kind="unwind" identifier="save_unwind" unwindAction="save:" id="8Ef-Bt-MeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qof-ES-eKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wgw-sZ-ifc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1148" y="-430.04926108374389"/>
         </scene>
