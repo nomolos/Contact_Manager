@@ -64,25 +64,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("prepare called in View Controller")
         let newContactController = segue.destination as? NewContactController
         newContactController!.contacts = contacts
     }
     
     @IBAction func save(_ unwindSegue: UIStoryboardSegue) {
-        print("save called")
         if let newContactController = unwindSegue.source as? NewContactController {
-            contacts = newContactController.contacts as! [String]
-            print(contacts)
-            print("end of save")
+            contacts = newContactController.contacts
         }
-    }
-    
-    func push_contact(contact : String) {
-        self.contacts.append(contact)
-        print("pushing " + contact)
-        print(contacts)
-        // tableView.reloadData()
     }
     
     /*

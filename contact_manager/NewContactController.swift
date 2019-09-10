@@ -141,6 +141,8 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromLeft
         self.view.window!.layer.add(transition, forKey: nil)
+        
+        // Saves to previous view
         performSegue(withIdentifier: "save_unwind", sender: self)
         //self.dismiss(animated: false, completion: nil)
     }
@@ -151,20 +153,7 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
     
     
     @IBAction func create_contact(_ sender: UIButton) {
-        print(name.text!)
-        print(relationship_textfield.text!)
-        print(contentment_textfield.text!)
-        print(interaction_textfield.text!)
-        
         self.contacts.append(name.text!)
-        
-        let home_view = ViewController(nibName: "ViewController", bundle: nil)
-        //home_view.contacts.append(String(name.text ?? ""))
-        home_view.push_contact(contact: name.text!)
-        
-        
-        print(home_view.contacts)
-        navigationController?.pushViewController(home_view, animated: true)
         return
     }
     
