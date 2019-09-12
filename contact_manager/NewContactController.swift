@@ -12,7 +12,7 @@ import CoreData
 class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UIPickerViewDataSource {
 
     
-    let relationship_data = ["Parent", "Grandparent", "Aunt", "Uncle", "Friend", "Cousin", "Family", "Partner"]
+    let relationship_data = ["Sibling", "Parent", "Grandparent", "Aunt", "Uncle", "Friend", "Cousin", "Family", "Partner"]
     
     let contentment_data = ["Maximum", "No Complaints", "Feeling distant", "Some tension", "Uncomfortable"]
     

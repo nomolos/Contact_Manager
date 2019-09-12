@@ -91,15 +91,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        
-        // style for table view cells
-        cell.textLabel?.text = contacts[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "SFProText-Medium", size: 20.0)
-        cell.textLabel?.font = cell.textLabel?.font.withSize(20)
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactCell
+            // style for table view cells
+            cell.textLabel?.text = contacts[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "SFProText-Medium", size: 20.0)
+            cell.textLabel?.font = cell.textLabel?.font.withSize(20)
+            return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactCell
+        cell.view_switch = {
+            [unowned self] in
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let secondVC = storyBoard.instantiateViewController(withIdentifier: "NewContactController")
+            self.present(secondVC, animated: true, completion: nil)
+        }
+        cell.elementTapped()
     }
 
     @IBAction func fill_contact(_ sender: Any) {
