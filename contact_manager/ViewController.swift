@@ -7,20 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var contacts = ["Mom", "Nate", "Sophie", "Darryl", "Josie"]
+    var contacts = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.reloadData()
-        print("Data reloaded")
-        print(contacts)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contacts")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            print("Printing what's in core data")
+            
+            var temp_contacts = [String]()
+            for data in result as! [NSManagedObject] {
+                print(data)
+                print(data.value(forKey: "name") as! String)
+                temp_contacts.append(data.value(forKey: "name") as! String)
+            }
+            self.contacts = temp_contacts
+            tableView.reloadData()
+        } catch {
+            print("Failed to load from core data")
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,7 +50,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
-        print(contacts)
+        //print(contacts)
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contacts")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            print("Printing what's in core data")
+            var temp_contacts = [String]()
+            for data in result as! [NSManagedObject] {
+                print(data)
+                print(data.value(forKey: "name") as! String)
+                temp_contacts.append(data.value(forKey: "name") as! String)
+            }
+            self.contacts = temp_contacts
+            tableView.reloadData()
+        } catch {
+            print("Failed to load from core data")
+        }
+        
     }
 
     // MARK: - Table view data source
@@ -68,11 +111,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         newContactController!.contacts = contacts
     }
     
-    @IBAction func save(_ unwindSegue: UIStoryboardSegue) {
-        if let newContactController = unwindSegue.source as? NewContactController {
-            contacts = newContactController.contacts
-        }
-    }
+    //@IBAction func save(_ unwindSegue: UIStoryboardSegue) {
+        //if let newContactController = unwindSegue.source as? NewContactController {
+            //contacts = newContactController.contacts
+            //print("this should be redundant now " + )
+        //}
+    //}
     
     /*
     // Override to support conditional editing of the table view.

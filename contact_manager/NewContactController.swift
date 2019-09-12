@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UIPickerViewDataSource {
 
@@ -143,8 +144,8 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
         self.view.window!.layer.add(transition, forKey: nil)
         
         // Saves to previous view
-        performSegue(withIdentifier: "save_unwind", sender: self)
-        //self.dismiss(animated: false, completion: nil)
+        //performSegue(withIdentifier: "save_unwind", sender: self)
+        self.dismiss(animated: false, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -154,6 +155,27 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
     
     @IBAction func create_contact(_ sender: UIButton) {
         self.contacts.append(name.text!)
+        
+        // attempting to store in core data (which is in app delegate)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // Need context to open up app delegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Contacts", in: context)
+        let newContact = NSManagedObject(entity: entity!, insertInto: context)
+        newContact.setValue(name.text!, forKey:"name")
+        newContact.setValue(contentment_textfield.text!, forKey:"contentment")
+        newContact.setValue(relationship_textfield.text!, forKey:"relationship")
+        newContact.setValue(interaction_textfield.text!, forKey:"interaction")
+        
+        
+        do {
+            try context.save()
+            print("Contact saved")
+        } catch {
+            print("Failed saving contact")
+        }
+        
         return
     }
     
