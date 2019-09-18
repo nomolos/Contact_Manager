@@ -16,6 +16,7 @@
 		BDDBA9462320770400C195E2 /* San Francisco Pro in Resources */ = {isa = PBXBuildFile; fileRef = BDDBA9452320770400C195E2 /* San Francisco Pro */; };
 		BDDBA96A2328625D00C195E2 /* contact_manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDDBA9682328625D00C195E2 /* contact_manager.xcdatamodeld */; };
 		BDDBA96C232B015500C195E2 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDBA96B232B015500C195E2 /* ContactCell.swift */; };
+		BDDBA96E232B389100C195E2 /* UpdateContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDBA96D232B389100C195E2 /* UpdateContactController.swift */; };
 		BDDEAE572320751F001AFB66 /* SFCompactDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDDEAE562320751F001AFB66 /* SFCompactDisplay-Regular.otf */; };
 		BDF87B08231F28CF002BC12F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF87B07231F28CF002BC12F /* ViewController.swift */; };
 		BDF87B0A23204C8F002BC12F /* NewContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF87B0923204C8F002BC12F /* NewContactController.swift */; };
@@ -56,6 +57,7 @@
 		BDDBA9452320770400C195E2 /* San Francisco Pro */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "San Francisco Pro"; path = "../../../../../Volumes/SF-Font-Pro/San Francisco Pro"; sourceTree = "<group>"; };
 		BDDBA9692328625D00C195E2 /* contact_manager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = contact_manager.xcdatamodel; sourceTree = "<group>"; };
 		BDDBA96B232B015500C195E2 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		BDDBA96D232B389100C195E2 /* UpdateContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateContactController.swift; sourceTree = "<group>"; };
 		BDDEAE562320751F001AFB66 /* SFCompactDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFCompactDisplay-Regular.otf"; path = "../../../Desktop/fonts/SFCompactDisplay-Regular.otf"; sourceTree = "<group>"; };
 		BDF87B07231F28CF002BC12F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BDF87B0923204C8F002BC12F /* NewContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				BD0C5379231862A100E9132E /* AppDelegate.swift */,
 				BD0C537D231862A100E9132E /* Main.storyboard */,
 				BDF87B0923204C8F002BC12F /* NewContactController.swift */,
+				BDDBA96D232B389100C195E2 /* UpdateContactController.swift */,
 				BDDBA96B232B015500C195E2 /* ContactCell.swift */,
 				BDF87B07231F28CF002BC12F /* ViewController.swift */,
 				BDF87B0F232068C0002BC12F /* CustomSegue.swift */,
@@ -283,6 +286,7 @@
 				BDDBA96C232B015500C195E2 /* ContactCell.swift in Sources */,
 				BDF87B10232068C0002BC12F /* CustomSegue.swift in Sources */,
 				BD0C537A231862A100E9132E /* AppDelegate.swift in Sources */,
+				BDDBA96E232B389100C195E2 /* UpdateContactController.swift in Sources */,
 				BDF87B0A23204C8F002BC12F /* NewContactController.swift in Sources */,
 				BDDBA96A2328625D00C195E2 /* contact_manager.xcdatamodeld in Sources */,
 				BDF87B08231F28CF002BC12F /* ViewController.swift in Sources */,

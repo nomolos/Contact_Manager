@@ -48,14 +48,14 @@
                                 </connections>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bar" translatesAutoresizingMaskIntoConstraints="NO" id="peD-GR-Wxx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="16"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRK-Xx-Xpd">
-                                <rect key="frame" x="15" y="50" width="16" height="22"/>
+                                <rect key="frame" x="15" y="50" width="39" height="39"/>
                                 <state key="normal" image="more_info"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbg-Xn-Id7">
-                                <rect key="frame" x="343" y="50" width="16" height="22"/>
+                                <rect key="frame" x="320" y="50" width="39" height="39"/>
                                 <state key="normal" image="new_contact"/>
                                 <connections>
                                     <action selector="fill_contact:" destination="4Zc-sf-L2A" eventType="touchUpInside" id="eLG-uV-Xue"/>
@@ -85,6 +85,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgg-AQ-HuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-119.2" y="-438.17733990147786"/>
+        </scene>
+        <!--Update Contact Controller-->
+        <scene sceneID="hjT-Sf-9bg">
+            <objects>
+                <viewController storyboardIdentifier="UpdateContactController" id="75l-Zn-Bsu" customClass="UpdateContactController" customModule="contact_manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tY3-CV-Fv5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bar" translatesAutoresizingMaskIntoConstraints="NO" id="aQm-OC-7ZN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPs-p3-yfI">
+                                <rect key="frame" x="15" y="50" width="40" height="40"/>
+                                <state key="normal" image="back_button"/>
+                                <connections>
+                                    <action selector="back:" destination="RgU-4c-AIy" eventType="touchUpInside" id="atb-70-2hU"/>
+                                    <action selector="back:" destination="75l-Zn-Bsu" eventType="touchUpInside" id="o9U-1n-IgJ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="6Sg-oD-Ek3">
+                                <rect key="frame" x="0.0" y="100" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Relationship" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="i7W-Dl-jhQ">
+                                <rect key="frame" x="0.0" y="180" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="Lqo-dr-R28"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contentment" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="pl5-3J-fC6">
+                                <rect key="frame" x="0.0" y="260" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="mX2-xY-Rhh"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Interaction" textAlignment="natural" minimumFontSize="20" background="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="3Zr-Qz-hID">
+                                <rect key="frame" x="0.0" y="340" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="eiY-si-Ijr"/>
+                                </connections>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1S8-im-ax8">
+                                <rect key="frame" x="0.0" y="421" width="375" height="271"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RgU-4c-AIy" id="QCD-wU-swq"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6V-30-jWV">
+                                <rect key="frame" x="0.0" y="692" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="submit_button"/>
+                                <connections>
+                                    <action selector="create_contact:" destination="RgU-4c-AIy" eventType="touchUpInside" id="sYl-Jr-bf0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eS-AR-23f">
+                                <rect key="frame" x="318" y="45" width="37" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="delete_contact"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aQm-OC-7ZN" firstAttribute="centerX" secondItem="LH3-QC-qOu" secondAttribute="centerX" id="G55-aD-01j"/>
+                            <constraint firstItem="jPs-p3-yfI" firstAttribute="top" secondItem="LH3-QC-qOu" secondAttribute="top" constant="6" id="Npt-oa-Uib"/>
+                            <constraint firstItem="jPs-p3-yfI" firstAttribute="leading" secondItem="LH3-QC-qOu" secondAttribute="leading" constant="15" id="Ox8-Ww-V18"/>
+                            <constraint firstItem="aQm-OC-7ZN" firstAttribute="top" secondItem="tY3-CV-Fv5" secondAttribute="top" id="Z7m-CI-4sh"/>
+                            <constraint firstItem="aQm-OC-7ZN" firstAttribute="width" secondItem="tY3-CV-Fv5" secondAttribute="width" id="gTN-jL-aUE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LH3-QC-qOu"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentment_textfield" destination="pl5-3J-fC6" id="qVB-GW-4Ss"/>
+                        <outlet property="interaction_textfield" destination="3Zr-Qz-hID" id="Akj-3N-h2d"/>
+                        <outlet property="name" destination="6Sg-oD-Ek3" id="iBZ-Zu-Hka"/>
+                        <outlet property="picker" destination="1S8-im-ax8" id="amU-oh-1R2"/>
+                        <outlet property="relationship_textfield" destination="i7W-Dl-jhQ" id="MeC-Fn-znT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvv-zs-Y81" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="253"/>
         </scene>
         <!--New Contact Controller-->
         <scene sceneID="7Pg-12-CeN">
@@ -192,6 +291,7 @@
     <resources>
         <image name="back_button" width="40" height="40"/>
         <image name="background_2" width="375" height="44"/>
+        <image name="delete_contact" width="37" height="46"/>
         <image name="menu_bar" width="375" height="100"/>
         <image name="more_info" width="39" height="39"/>
         <image name="new_contact" width="39" height="39"/>

@@ -96,16 +96,65 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.textLabel?.text = contacts[indexPath.row]
             cell.textLabel?.font = UIFont(name: "SFProText-Medium", size: 20.0)
             cell.textLabel?.font = cell.textLabel?.font.withSize(20)
+        print("printing cells label in cellForRowAt")
+        print(cell.textLabel?.text ?? "")
             return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactCell
+        let name = contacts[indexPath.row]
+        var relationship = ""
+        var contentment = ""
+        var interaction = ""
+        print("printing what we know about this cell")
+        //print(contacts[indexPath.row])
+        
+        // Fetch from Core Data
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contacts")
+        //request.predicate = NSPredicate(format: "age = %@", "12")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let this_name = data.value(forKey: "name") as! String
+                //print(data.value(forKey: "username") as! String)
+                if (this_name == contacts[indexPath.row]){
+                    print("This is the data we want")
+                    relationship = data.value(forKey: "relationship") as! String
+                    contentment = data.value(forKey: "contentment") as! String
+                    interaction = data.value(forKey: "interaction") as! String
+                }
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
+        print("printing results of CoreData request")
+        print(name)
+        print(relationship)
+        print(contentment)
+        print(interaction)
+        
+        
+        //print(cell.)
         cell.view_switch = {
             [unowned self] in
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondVC = storyBoard.instantiateViewController(withIdentifier: "NewContactController")
-            self.present(secondVC, animated: true, completion: nil)
+            //let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let second_vc = self.storyboard?.instantiateViewController(withIdentifier: "UpdateContactController") as! UpdateContactController
+            //let second_vc = UpdateContactController(nibName: nil, bundle: nil) as! UpdateContactController
+            print("printing what this View Controller is")
+            print(second_vc.contentment_data)
+            second_vc.selected_name = name
+            second_vc.selected_contentment = contentment
+            second_vc.selected_interaction = interaction
+            second_vc.selected_relationship = relationship
+            //print(second_vc)
+            self.present(second_vc, animated: true, completion: nil)
+            //navigationController?.pushViewController(secondVC, animated: true)
         }
         cell.elementTapped()
     }
