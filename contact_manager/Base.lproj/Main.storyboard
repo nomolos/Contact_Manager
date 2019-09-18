@@ -154,6 +154,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="submit_button"/>
                                 <connections>
+                                    <action selector="contact_button:" destination="75l-Zn-Bsu" eventType="touchUpInside" id="hA5-Xy-4JP"/>
                                     <action selector="create_contact:" destination="RgU-4c-AIy" eventType="touchUpInside" id="sYl-Jr-bf0"/>
                                 </connections>
                             </button>
@@ -161,7 +162,17 @@
                                 <rect key="frame" x="318" y="45" width="37" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="delete_contact"/>
+                                <connections>
+                                    <action selector="delete_contact:" destination="75l-Zn-Bsu" eventType="touchUpInside" id="DKc-pX-aNo"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contacted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tep-xA-LQf">
+                                <rect key="frame" x="129" y="729" width="116" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

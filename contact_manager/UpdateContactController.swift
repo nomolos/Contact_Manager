@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class UpdateContactController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UIPickerViewDataSource {
     
@@ -92,6 +94,10 @@ class UpdateContactController: UIViewController, UIPickerViewDelegate, UITextFie
         self.picker.dataSource = self
         
         
+        name.text = selected_name
+        contentment_textfield.text = selected_contentment
+        relationship_textfield.text = selected_relationship
+        interaction_textfield.text = selected_interaction
         
         
         // Indenting the text fields so it ain't ugly
@@ -199,6 +205,86 @@ class UpdateContactController: UIViewController, UIPickerViewDelegate, UITextFie
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    
+    @IBAction func contact_button(_ sender: Any) {
+        let alert_controller = UIAlertController(title: "Report an Interaction", message: "Did you contact " + selected_name + " ?", preferredStyle: .alert)
+        
+        // Create the actions
+        let yes_action = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            //NSLog("OK Pressed")
+            print("Yes clicked")
+        }
+        let no_action = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) {
+            UIAlertAction in
+            //NSLog("Cancel Pressed")
+            print("No clicked")
+        }
+        
+        // Add the actions
+        alert_controller.addAction(yes_action)
+        alert_controller.addAction(no_action)
+        
+        // Present the controller
+        self.present(alert_controller, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func delete_contact(_ sender: Any) {
+        
+        let alert_controller = UIAlertController(title: "Delete this Contact", message: "Are you sure you want to delete " + selected_name + " ?", preferredStyle: .alert)
+        
+        // Create the actions
+        let yes_action = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            //NSLog("OK Pressed")
+            print("Yes clicked")
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contacts")
+            request.predicate = NSPredicate(format: "name = %@", self.selected_name)
+            request.returnsObjectsAsFaults = false
+            
+            do {
+                let fetched_contact = try context.fetch(request)
+                let delete_me = fetched_contact[0] as! NSManagedObject
+                context.delete(delete_me)
+                do {
+                    try context.save()
+                }
+                catch {
+                    print("error")
+                }
+            }
+            catch {
+                print("error")
+            }
+            let transition: CATransition = CATransition()
+            transition.duration = 0.5
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.reveal
+            transition.subtype = CATransitionSubtype.fromLeft
+            self.view.window!.layer.add(transition, forKey: nil)
+            
+            // Saves to previous view
+            //performSegue(withIdentifier: "save_unwind", sender: self)
+            self.dismiss(animated: false, completion: nil)
+        }
+        let no_action = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) {
+            UIAlertAction in
+            //NSLog("Cancel Pressed")
+            print("No clicked")
+        }
+        
+        // Add the actions
+        alert_controller.addAction(yes_action)
+        alert_controller.addAction(no_action)
+        
+        // Present the controller
+        self.present(alert_controller, animated: true, completion: nil)
     }
     
     /*

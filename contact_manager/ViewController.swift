@@ -101,6 +101,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
     }
     
+    
+    
+    
+    // A Contact Cell has been selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactCell
         let name = contacts[indexPath.row]
@@ -108,7 +112,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var contentment = ""
         var interaction = ""
         print("printing what we know about this cell")
-        //print(contacts[indexPath.row])
         
         // Fetch from Core Data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -140,7 +143,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(interaction)
         
         
-        //print(cell.)
+        // Switches the view and passes the data of the selected cell to
+        // the view where you can edit the contact (UpdateContactController)
         cell.view_switch = {
             [unowned self] in
             //let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
