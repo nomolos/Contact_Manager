@@ -120,15 +120,18 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
             print("Were editing the contentment textfield")
             current_data = contentment_data
             current_size = contentment_data.count
+            dismissKeyboard()
         }
         else if(textField == relationship_textfield){
             print("Were editing the relationship textfield")
             current_data = relationship_data
             current_size = relationship_data.count
+            dismissKeyboard()
         }
         else if(textField == interaction_textfield){
             current_data = interaction_data
             current_size = interaction_data.count
+            dismissKeyboard()
         }
         picker.reloadAllComponents()
         picker.isHidden = false
