@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -31,11 +33,53 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("Printing what's in core data")
             
             var temp_contacts = [String]()
+            var contact_tuples = [(lateness: Double, name: String)]()
+            
+            // Calculate lateness : current_timestamp - (contact timestamp) - (contact frequency in seconds)
+            // Add to array of tuples : (lateness, name)
+            // Sort contacts by lateness (Descending order)
             for data in result as! [NSManagedObject] {
                 print(data)
-                print(data.value(forKey: "name") as! String)
-                temp_contacts.append(data.value(forKey: "name") as! String)
+                //print(data.value(forKey: "name") as! String)
+                let contact_timestamp = data.value(forKey: "contact_timestamp") as! Double
+                let current_timestamp = NSDate().timeIntervalSince1970
+                let contact_frequency_string = data.value(forKey: "interaction") as! String
+                var contact_frequency = Double(0)
+                
+                if(contact_frequency_string == "Daily"){
+                    contact_frequency = 86400
+                }
+                else if (contact_frequency_string == "Weekly"){
+                    contact_frequency = 604800
+                }
+                else if (contact_frequency_string == "Every Two Weeks"){
+                    contact_frequency = 1209600
+                }
+                else if (contact_frequency_string == "Monthly") {
+                    contact_frequency = 2419200
+                }
+                else if (contact_frequency_string == "Every Two Months"){
+                    contact_frequency = 4838400
+                }
+                else {
+                    print("Contact Frequency Not Found (Weird ass error)")
+                }
+                
+                let lateness = current_timestamp - contact_timestamp - contact_frequency
+                contact_tuples.append((lateness: lateness, name: data.value(forKey: "name") as! String))
+                
+                print("printing contact frequency of " + (data.value(forKey: "name") as! String))
+                print(contact_frequency)
+                
+                //temp_contacts.append(data.value(forKey: "name") as! String)
             }
+            contact_tuples.sort(by: >)
+            print(contact_tuples)
+            
+            for tuple in contact_tuples {
+                temp_contacts.append(tuple.1)
+            }
+            
             self.contacts = temp_contacts
             tableView.reloadData()
         } catch {
@@ -55,19 +99,62 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contacts")
         request.returnsObjectsAsFaults = false
         
         do {
             let result = try context.fetch(request)
             print("Printing what's in core data")
+            
             var temp_contacts = [String]()
+            var contact_tuples = [(lateness: Double, name: String)]()
+            
+            // Calculate lateness : current_timestamp - (contact timestamp) - (contact frequency in seconds)
+            // Add to array of tuples : (lateness, name)
+            // Sort contacts by lateness (Descending order)
             for data in result as! [NSManagedObject] {
                 print(data)
-                print(data.value(forKey: "name") as! String)
-                temp_contacts.append(data.value(forKey: "name") as! String)
+                //print(data.value(forKey: "name") as! String)
+                let contact_timestamp = data.value(forKey: "contact_timestamp") as! Double
+                let current_timestamp = NSDate().timeIntervalSince1970
+                let contact_frequency_string = data.value(forKey: "interaction") as! String
+                var contact_frequency = Double(0)
+                
+                if(contact_frequency_string == "Daily"){
+                    contact_frequency = 86400
+                }
+                else if (contact_frequency_string == "Weekly"){
+                    contact_frequency = 604800
+                }
+                else if (contact_frequency_string == "Every Two Weeks"){
+                    contact_frequency = 1209600
+                }
+                else if (contact_frequency_string == "Monthly") {
+                    contact_frequency = 2419200
+                }
+                else if (contact_frequency_string == "Every Two Months"){
+                    contact_frequency = 4838400
+                }
+                else {
+                    print("Contact Frequency Not Found (Weird ass error)")
+                }
+                
+                let lateness = current_timestamp - contact_timestamp - contact_frequency
+                contact_tuples.append((lateness: lateness, name: data.value(forKey: "name") as! String))
+                
+                print("printing contact frequency of " + (data.value(forKey: "name") as! String))
+                print(contact_frequency)
+                
+                //temp_contacts.append(data.value(forKey: "name") as! String)
             }
+            contact_tuples.sort(by: >)
+            print(contact_tuples)
+            
+            for tuple in contact_tuples {
+                temp_contacts.append(tuple.1)
+            }
+            
             self.contacts = temp_contacts
             tableView.reloadData()
         } catch {

@@ -163,11 +163,15 @@ class NewContactController: UIViewController, UIPickerViewDelegate, UITextFieldD
         
         let entity = NSEntityDescription.entity(forEntityName: "Contacts", in: context)
         let newContact = NSManagedObject(entity: entity!, insertInto: context)
+        let timestamp = NSDate().timeIntervalSince1970
+        
         newContact.setValue(name.text!, forKey:"name")
         newContact.setValue(contentment_textfield.text!, forKey:"contentment")
         newContact.setValue(relationship_textfield.text!, forKey:"relationship")
         newContact.setValue(interaction_textfield.text!, forKey:"interaction")
-        
+        newContact.setValue(timestamp, forKey:"contact_timestamp")
+        print("creating contact with timestamp ")
+        print(timestamp)
         
         do {
             try context.save()

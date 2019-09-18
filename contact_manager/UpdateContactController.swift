@@ -216,6 +216,28 @@ class UpdateContactController: UIViewController, UIPickerViewDelegate, UITextFie
             UIAlertAction in
             //NSLog("OK Pressed")
             print("Yes clicked")
+            let timestamp = NSDate().timeIntervalSince1970
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            // Need context to open up app delegate
+            let context = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contacts")
+            request.returnsObjectsAsFaults = false
+            request.predicate = NSPredicate(format: "name = %@", self.selected_name)
+            
+            
+            do {
+                var fetched_contact = try context.fetch(request)
+                let modify_me = fetched_contact[0] as! NSManagedObject
+                modify_me.setValue(timestamp, forKey: "contact_timestamp")
+                print("new timestamp is ")
+                print(timestamp)
+            }
+            catch {
+                print("error updating contact timestamp")
+            }
+            //let entity = NSEntityDescription.entity(forEntityName: "Contacts", in: context)
+            
+            
         }
         let no_action = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) {
             UIAlertAction in
