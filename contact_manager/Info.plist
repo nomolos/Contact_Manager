@@ -35,10 +35,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIAppFonts</key>
-	<array>
-		<string>SFCompactDisplay-Regular.otf</string>
-		<string>SFCompactDisplay-Black.otfSFCompactDisplay-Bold.otfSFCompactDisplay-Heavy.otf</string>
-	</array>
+	<array/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

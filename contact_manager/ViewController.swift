@@ -14,10 +14,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     
     var contacts = [String]()
+    var seconds_late = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        for family: String in UIFont.familyNames
+        {
+            print(family)
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -78,6 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             for tuple in contact_tuples {
                 temp_contacts.append(tuple.1)
+                seconds_late.append(tuple.0)
             }
             
             self.contacts = temp_contacts
@@ -181,10 +191,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactCell
             // style for table view cells
             cell.textLabel?.text = contacts[indexPath.row]
-            cell.textLabel?.font = UIFont(name: "SFProText-Medium", size: 20.0)
+        
+        if(seconds_late[indexPath.row] > 0 ){
+            print("printing the actual number")
+            print(seconds_late[indexPath.row])
+            cell.clock.image = UIImage(named: "clock")
+        }
+        else {
+            cell.clock.image = nil
+        }
+            //cell.textLabel?.font = UIFont(name: "SFProText-Medium", size: 20.0)
             cell.textLabel?.font = cell.textLabel?.font.withSize(20)
-        print("printing cells label in cellForRowAt")
+        print("This row belongs to ")
         print(cell.textLabel?.text ?? "")
+        print("It is this many seconds late ")
+        print(seconds_late[indexPath.row])
             return cell
     }
     

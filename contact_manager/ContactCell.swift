@@ -11,6 +11,8 @@ import UIKit
 class ContactCell: UITableViewCell {
     var view_switch = { }
     
+    @IBOutlet weak var clock: UIImageView!
+    
     func elementTapped() {
         view_switch()
     }
